@@ -1,0 +1,45 @@
+
+CREATE SCHEMA `blood` ;
+
+CREATE TABLE `blood`.`organisations` (
+  `Serial` INT NOT NULL AUTO_INCREMENT,
+  `name_of_organisation` VARCHAR(200) NOT NULL,
+  `address_of_organisation` VARCHAR(200) NULL,
+  `landmark` VARCHAR(100) NULL,
+  `designation` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `phone` VARCHAR(45) NULL,
+  `skype` VARCHAR(45) NULL,
+  `expected_donors` VARCHAR(45) NULL,
+  `date` DATE NOT NULL,
+  `type` VARCHAR(100) NULL,
+  PRIMARY KEY (`Serial`));
+  
+  CREATE TABLE `blood`.`date` (
+  `Index` INT NOT NULL,
+  `available_dates` DATE NOT NULL,
+  PRIMARY KEY (`Index`));
+  
+  ALTER TABLE `blood`.`organisations` 
+CHANGE COLUMN `landmark` `facilitator` VARCHAR(100) NULL DEFAULT NULL ;
+
+ALTER TABLE `blood`.`organisations` 
+ADD COLUMN `landmark` VARCHAR(45) NOT NULL AFTER `type`;
+
+ALTER TABLE `blood`.`organisations` 
+CHANGE COLUMN `landmark` `landmark` VARCHAR(45) NULL ;
+
+ALTER TABLE `blood`.`organisations` 
+CHANGE COLUMN `phone` `phone` VARCHAR(30) NULL DEFAULT NULL ;
+
+ALTER TABLE `blood`.`organisations` 
+ADD COLUMN `size` VARCHAR(45) NULL AFTER `landmark`;
+
+ALTER TABLE `blood`.`organisations` 
+ADD COLUMN `phone1` VARCHAR(45) NULL AFTER `phone`;
+
+ALTER TABLE `blood`.`organisations` 
+ADD COLUMN `landline` VARCHAR(45) NULL AFTER `phone1`;
+
+ALTER TABLE `blood`.`organisations` 
+ADD COLUMN `landline1` VARCHAR(45) NULL AFTER `landline`;
